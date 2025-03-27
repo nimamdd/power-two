@@ -30,7 +30,7 @@ public class TaTest {
             String[] cmd = {
                "/bin/bash",
                "-c",
-               "cat src/main/java/in"+test_no+" | java -jar src/main/java/rars.jar nc src/main/java/solution.s"
+               "cat src/main/java/in"+test_no+" | java -jar lib/rars.jar nc src/main/java/solution.s"
             };
             p = Runtime.getRuntime().exec(cmd);
             p.waitFor();
