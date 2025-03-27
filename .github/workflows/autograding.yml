@@ -22,23 +22,6 @@ jobs:
       run: javac -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar -d bin src/test/java/TaTest.java
 
     - name: Run tests
-      run: java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest | tee result.log
+      run: java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest
 
-    - name: Compute Grade
-      run: |
-        PASSED=$(grep -c '^OK (' result.log)
-        FAILED=$(grep -c '^FAILURES!!!' result.log)
-
-        if [ "$PASSED" -eq 1 ]; then
-          echo "GRADE: 100"
-        elif [ "$FAILED" -eq 1 ]; then
-          TOTAL=$(grep -oP '(?<=Tests run: )\d+' result.log)
-          FAIL=$(grep -oP '(?<=Failures: )\d+' result.log)
-          if [ -z "$TOTAL" ]; then TOTAL=0; fi
-          if [ -z "$FAIL" ]; then FAIL=0; fi
-          PASSED=$((TOTAL - FAIL))
-          GRADE=$((PASSED * 100 / TOTAL))
-          echo "GRADE: $GRADE"
-        else
-          echo "⚠️ Could not detect test result. GRADE: 0"
-        fi
+      
