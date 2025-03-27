@@ -22,4 +22,21 @@ jobs:
       run: javac -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar -d bin src/test/java/TaTest.java
 
     - name: Run tests
-      run: java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest
+      run: java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest | tee result.log
+
+    - name: Compute Grade from JUnit Output
+      run: |
+        TOTAL=$(grep -Eo 'Tests run: [0-9]+' result.log | awk '{print $3}')
+        FAILED=$(grep -Eo 'Failures: [0-9]+' result.log | awk '{print $2}')
+        if [ -z "$TOTAL" ]; then
+          echo "No test summary found, assuming 0"
+          TOTAL=0
+          FAILED=0
+        fi
+        if [ "$TOTAL" -eq 0 ]; then
+          echo "GRADE: 0"
+        else
+          PASSED=$((TOTAL - FAILED))
+          GRADE=$((PASSED * 100 / TOTAL))
+          echo "GRADE: $GRADE"
+        fi
