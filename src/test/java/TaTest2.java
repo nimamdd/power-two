@@ -27,7 +27,7 @@ public class TaTest2 {
         return sb.toString().trim();
     }
 
-    public List<Integer> generateLargeRandomTestNumbers() {
+    public List<Integer> generateRandomTestNumbers() {
         Random random = new Random();
         Set<Integer> result = new HashSet<>();
 
@@ -52,12 +52,6 @@ public class TaTest2 {
         ArrayList<Integer> finalList = new ArrayList<>(result);
         Collections.shuffle(finalList);
         finalList.add(0, finalList.size());
-        return finalList;
-    }
-
-        ArrayList<Integer> finalList = new ArrayList<>(result);
-        Collections.shuffle(finalList);
-        finalList.add(0, finalList.size()); 
         return finalList;
     }
 
