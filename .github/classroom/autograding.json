@@ -1,0 +1,34 @@
+{
+    "tests": [
+        {
+            "name": "Test 1",
+            "setup": "javac -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar -d bin src/test/java/TaTest.java",
+            "run": "java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest#test1",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 33
+        },
+        {
+            "name": "Test 2",
+            "setup": "",
+            "run": "java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest#test2",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 33
+        },
+        {
+            "name": "Test 3",
+            "setup": "",
+            "run": "java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest#test3",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 35
+        }
+    ]
+}
