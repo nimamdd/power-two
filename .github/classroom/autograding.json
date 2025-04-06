@@ -8,7 +8,17 @@
             "output": "",
             "comparison": "included",
             "timeout": 10,
-            "points": 100
+            "points": 35
+        },
+        {
+            "name": "Test 1",
+            "setup": "javac -cp lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar -d bin src/test/java/TaTest2.java",
+            "run": "java -cp bin:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar:lib/rars.jar org.junit.runner.JUnitCore TaTest2",
+            "input": "",
+            "output": "",
+            "comparison": "included",
+            "timeout": 10,
+            "points": 65
         }
     ]
 }

@@ -51,7 +51,7 @@ public class TaTest {
 
         ArrayList<Integer> finalList = new ArrayList<>(result);
         Collections.shuffle(finalList);
-        finalList.add(0, finalList.size()); 
+        finalList.add(0, finalList.size());
         return finalList;
     }
 
