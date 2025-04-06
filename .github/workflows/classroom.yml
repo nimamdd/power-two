@@ -29,6 +29,10 @@ name: Autograding
 
 on: [push]
 
+permissions:
+  contents: read
+  checks: write
+
 jobs:
   autograding:
     runs-on: ubuntu-latest
